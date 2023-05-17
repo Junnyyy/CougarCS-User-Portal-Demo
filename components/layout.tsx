@@ -9,7 +9,7 @@ const Layout = ({ children, title, nav }: layoutProps) => {
       </Head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      {nav ? <div>nav</div> : <div>no nav</div>}
+      {nav ? <div>nav</div> : <></>}
       <div className="flex-1 bg-mainDark">{children}</div>
     </>
   );
