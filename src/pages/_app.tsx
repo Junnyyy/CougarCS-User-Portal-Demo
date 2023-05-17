@@ -6,6 +6,7 @@ import {
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
 import type { AppProps } from "next/app";
 import { useState } from "react";
+import { Toaster } from "sonner";
 
 export default function App({
   Component,
@@ -18,6 +19,7 @@ export default function App({
       supabaseClient={supabaseClient}
       initialSession={pageProps.initialSession}
     >
+      <Toaster theme="dark" richColors />
       <Component {...pageProps} />
     </SessionContextProvider>
   );
