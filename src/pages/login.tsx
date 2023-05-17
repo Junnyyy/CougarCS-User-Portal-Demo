@@ -57,7 +57,7 @@ const Login = () => {
         <div className="w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-neutral-800 border-neutral-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
-              Sign in to your account
+              Welcome back!
             </h1>
             <form className="space-y-4 md:space-y-6" onSubmit={handleLogin}>
               <div>
@@ -65,7 +65,7 @@ const Login = () => {
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-white"
                 >
-                  Your email
+                  Email
                 </label>
                 <input
                   type="email"
@@ -97,14 +97,17 @@ const Login = () => {
                   href="/"
                   className="text-sm font-medium text-red-600 hover:underline dark:text-red-500"
                 >
-                  Forgot password?
+                  Forgot password
                 </Link>
+              </div>
+              <div>
+                <hr className="border-neutral-700" />
               </div>
               <button
                 type="submit"
                 className="w-full text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
               >
-                Sign in
+                Log in
               </button>
               <p className="text-sm font-light text-neutral-400">
                 Don’t have an account yet?{" "}
