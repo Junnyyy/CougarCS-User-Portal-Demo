@@ -3,6 +3,7 @@ import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 import Layout from "../../components/layout";
 import Link from "next/link";
+import { toast } from "sonner";
 
 const Login = () => {
   const session = useSession();
@@ -14,17 +15,27 @@ const Login = () => {
   }
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    const { error } = await supabase.auth.signInWithPassword({
+    e.preventDefault();
+
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: e.currentTarget.email.value,
       password: e.currentTarget.password.value,
     });
 
     if (error) {
-      console.error(error);
+      if (error.message === "Invalid login credentials") {
+        toast.error("Invalid email or password");
+        return;
+      }
+
+      toast.error("An error occurred");
       return;
     }
 
-    router.push("/");
+    if (data) {
+      toast.success("Signed in successfully");
+      router.push("/profile");
+    }
   };
 
   return (
