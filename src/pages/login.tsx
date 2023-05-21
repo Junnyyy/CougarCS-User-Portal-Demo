@@ -28,6 +28,11 @@ const Login = () => {
         return;
       }
 
+      if (error.message === "Email not confirmed") {
+        toast.error("You must confirm your email first");
+        return;
+      }
+
       toast.error("An error occurred");
       return;
     }
